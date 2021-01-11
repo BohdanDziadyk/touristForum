@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserModel} from '../../user/models/UserModel';
 import {PlaceModel} from '../models/PlaceModel';
 import {places} from '../../places'
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import {users} from '../../users'
 import {comments} from '../../comments'
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -24,7 +24,7 @@ export class PlaceComponent implements OnInit {
   body: FormControl = new FormControl('', [Validators.required])
   comments: CommentModel[];
   newComment: CommentModel;
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
     this.form = new FormGroup({
       title: this.title,
       body: this.body
@@ -48,8 +48,8 @@ export class PlaceComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(value => this.filteredPlaces = this.places.filter(value1 => value1.id == value.id));
     this.place = this.filteredPlaces[0]
-    this.user = null;
     this.users = users;
+    this.user = null;
     this.comments = comments;
     if(localStorage.getItem("id")){
         // @ts-ignore
@@ -58,4 +58,9 @@ export class PlaceComponent implements OnInit {
     }
   }
 
+  deletePlace() {
+    let index = places.indexOf(this.place);
+    places.splice(index,1);
+    this.router.navigate(['places'])
+  }
 }

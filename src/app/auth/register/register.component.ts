@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   phone: FormControl = new FormControl('')
   website: FormControl = new FormControl('')
   newUser: UserModel = null;
+  users: UserModel[];
   constructor(private router: Router) {
     this.form = new FormGroup({
       email: this.email,
@@ -36,6 +37,7 @@ export class RegisterComponent implements OnInit {
     return password === confirmPassword ? null : {passwordError: true};
   }
   ngOnInit(): void {
+    this.users = users;
   }
   getRandomInt(max) : string{
     return Math.floor(Math.random() * Math.floor(max)).toString();

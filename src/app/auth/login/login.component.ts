@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     for (let user of this.users){
       if (user.email === form.controls.email.value && user.password === form.controls.password.value){
         localStorage.setItem("id", `${user.id}`);
-        this.router.navigate([""]).then(this.ngOnInit)
+        this.router.navigate([""])
       }
     }
   }

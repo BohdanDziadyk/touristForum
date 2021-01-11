@@ -40,7 +40,12 @@
   </div>
   <hr>
 </div>
-<div class="image">
+ <div class="image" *ngIf="user && user.account_type === 'admin'">
+    <button type="submit" class="btn-danger" style="width: 51.5%" (click)="deletePlace()">Delete</button>
+   <hr>
+ </div>
+<div *ngIf="user" class="image">
+  <hr>
     <form [formGroup]="form" style="width: 51.5%">
       <div>
         <input type="text" class="form-control" [formControl]="title" placeholder="Type title of your comment...">

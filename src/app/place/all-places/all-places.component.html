@@ -1,5 +1,5 @@
 
-  <div *ngIf="!getFormFlag()">
+  <div *ngIf="!getFormFlag() && user">
     <button *ngIf="user && user.account_type === 'moderator' || user.account_type === 'admin'"class="btn-warning" style="width: 100%" (click)="changeFormFlag()">Add new place</button>
   </div>
   <div *ngIf="getFormFlag()" class="form-group">
