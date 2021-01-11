@@ -1,0 +1,9 @@
+<div class="form">
+  <form [formGroup]="form">
+    <label>Email</label>
+    <input [formControl]="email" type="email" placeholder="Type your email here" class="form-control">
+    <label>Password</label>
+    <input [formControl]="password" type="password" placeholder="Type your password here" class="form-control">
+    <button type="submit" class="btn-primary" (click)="logIn(form)">Login</button>
+  </form>
+</div>

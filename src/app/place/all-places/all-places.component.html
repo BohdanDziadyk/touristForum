@@ -1,0 +1,52 @@
+
+  <div *ngIf="!getFormFlag()">
+    <button *ngIf="user && user.account_type === 'moderator' || user.account_type === 'admin'"class="btn-warning" style="width: 100%" (click)="changeFormFlag()">Add new place</button>
+  </div>
+  <div *ngIf="getFormFlag()" class="form-group">
+    <form [formGroup]="form">
+      <div>
+        <label>Name:</label>
+        <input type="text" class="form-control" [formControl]="name" placeholder="Type name of the place...">
+      </div>
+      <div>
+        <label>Image:</label>
+        <input type="text" class="form-control" [formControl]="image" placeholder="Type URL of photo of the place...">
+      </div>
+      <div>
+        <label>Description:</label>
+        <textarea type="text" class="form-control" [formControl]="description" placeholder="Type description of the place..."></textarea>
+      </div>
+      <div>
+        <label>Country:</label>
+        <input type="text" class="form-control" [formControl]="country" placeholder="Type country of the place...">
+      </div>
+      <div>
+        <label>City:</label>
+        <input type="text" class="form-control" [formControl]="city" placeholder="Type city of the place...">
+      </div>
+      <div>
+        <label>Address:</label>
+        <input type="text" class="form-control" [formControl]="address" placeholder="Type address of the place...">
+      </div>
+      <div>
+        <label>Phone:</label>
+        <input type="text" class="form-control" [formControl]="phone" placeholder="Type phone of the place...">
+      </div>
+      <div>
+        <label>Website:</label>
+        <input type="text" class="form-control" [formControl]="website" placeholder="Type website of the place...">
+      </div>
+      <button [disabled]="!form.valid" type="submit" class="btn-warning" style="margin-left: 10px" (click)="addPlace(form)">Add place</button>
+      <button class="btn-danger" style="margin-left: 10px" (click)="changeFormFlag()">Cancel</button>
+    </form>
+  </div>
+  <div style="margin-left: 2%">
+    <div class="card" style="width: 17rem;float: left" *ngFor="let place of places">
+    <img class="card-img" src="{{place.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{place.name}}</h5>
+      <p class="card-text">{{place.country}}</p>
+      <a routerLink="{{place.id}}" class="btn btn-primary">Details</a>
+    </div>
+  </div>
+  </div>

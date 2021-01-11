@@ -1,0 +1,19 @@
+<div class="form">
+  <form [formGroup]="form">
+    <label>Email</label>
+    <input [formControl]="email" type="email" placeholder="Type your email here" class="form-control">
+    <label>Password</label>
+    <input [formControl]="password" type="password" placeholder="Type your password here" class="form-control">
+    <label>Confirm Password</label>
+    <input [formControl]="confirmPassword" type="password" placeholder="Confirm your password here" class="form-control">
+    <label>Username</label>
+    <input [formControl]="username" type="text" placeholder="Type your username here" class="form-control">
+    <label>Name</label>
+    <input [formControl]="name" type="text" placeholder="Type your name here" class="form-control">
+    <label>Phone</label>
+    <input [formControl]="phone" type="text" placeholder="Type your email here" class="form-control">
+    <label>Website</label>
+    <input [formControl]="website" type="text" placeholder="Type your email here" class="form-control">
+    <button [disabled]="!form.valid" type="submit" class="btn-primary" (click)="createUser(form)">Create account</button>
+  </form>
+</div>

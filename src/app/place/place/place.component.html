@@ -1,0 +1,66 @@
+<div class="image">
+  <img src="{{place.image}}">
+  <div class="list-group" style="width: 51.5%">
+    <a  class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Location Name</h5>
+      </div>
+      <p class="mb-1">{{place.name}}</p>
+    </a>
+    <a  class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Description</h5>
+      </div>
+      <p class="mb-1">{{place.description}}</p>
+    </a>
+    <a  class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Country</h5>
+      </div>
+      <p class="mb-1">{{place.country}}</p>
+    </a>
+    <a  class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">City</h5>
+      </div>
+      <p class="mb-1">{{place.city}}</p>
+    </a>
+    <a  class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Website</h5>
+      </div>
+      <p class="mb-1"><a href="{{place.website}}">{{place.website}}</a></p>
+    </a>
+    <a class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Contacts</h5>
+      </div>
+      <p class="mb-1">{{place.phone}}</p>
+    </a>
+  </div>
+  <hr>
+</div>
+<div class="image">
+    <form [formGroup]="form" style="width: 51.5%">
+      <div>
+        <input type="text" class="form-control" [formControl]="title" placeholder="Type title of your comment...">
+      </div>
+      <div>
+        <textarea class="form-control" [formControl]="body" placeholder="Type body of your comment..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" (click)="addComment(form)">Add comment</button>
+    </form>
+  <hr>
+</div>
+<div class="image">
+  <div class="list-group" style="width: 51.5%" *ngFor="let comment of comments">
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{comment.user}}</h5>
+        <small>{{comment.id}}</small>
+      </div>
+      <p class="mb-1">{{comment.body}}</p>
+      <small>{{comment.title}}</small>
+    </a>
+  </div>
+</div>

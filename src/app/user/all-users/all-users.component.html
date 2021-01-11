@@ -1,0 +1,10 @@
+<div>
+  <div class="card" style="width: 18rem;float: left" *ngFor="let user of users">
+  <img class="card-img-top" src="https://picsum.photos/id/{{user.id+10}}/200/300" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{user.username}}</h5>
+    <p class="card-text">{{user.email}}</p>
+    <a routerLink="{{user.id}}" class="btn btn-primary">Details</a>
+  </div>
+</div>
+</div>
